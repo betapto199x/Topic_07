@@ -21,16 +21,23 @@ public class Topic_01_Check_Environment {
 		
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		driver.get("https://www.facebook.com/");
+		driver.get("https://phptravels.net/api/admin");
 	}
 
 	@Test
 	public void TC_01_ValidateCurrentUrl() {
 		// Login Page Url matching
 		String loginPageUrl = driver.getCurrentUrl();
-		Assert.assertEquals(loginPageUrl, "https://www.facebook.com/");
+		Assert.assertEquals(loginPageUrl, "https://phptravels.net/api/admin");
 	}
 
+	@Test
+	public void loginPage() {
+		// Login Page title
+		String loginPageTitle = driver.getTitle();
+		Assert.assertEquals(loginPageTitle, "Facebook – log in or sign up");
+	}
+	
 	@Test
 	public void TC_02_ValidatePageTitle() {
 		// Login Page title
